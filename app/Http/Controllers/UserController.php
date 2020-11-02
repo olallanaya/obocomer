@@ -1,16 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage; // meter el objeto de las imagenes
+use Illuminate\Support\Facades\File;
+
+
+
+
 
 class UserController extends Controller
 {
+    public function __construct() /*Se lo añadimos para tener el controlador controlado en todo momento*/ 
+    {
+        $this->middleware('auth');
+    }
+
     public function config(){
     return view('user.config');
     }
     public function update(Request $request)
     {  //usuario identificado
+       
         $user= \Auth::user();
         $id= $user->id;
         //validamos el formulario 
@@ -34,7 +46,19 @@ class UserController extends Controller
        $user->direccion=$direccion;
        $user->localidad=$localidad;
        $user->provincia=$provincia;
-
+       // imagenenes
+       $image=$request->file('image');
+       if($image)
+       {
+        $image_completo=time().$image->getClientOriginalName(); //asi tiene un nombre unico por q le ponemos la hora
+        //usuamos storage tambien tenemos q crear la depedencia file. Disck permite seleccionar en donde y con put guardamos la imagen
+        //asi la guardamos en storage/app/users
+        Storage::disk('users')->put($image_completo,File::get($image));
+        //le doy nombre a la imagen el objeto
+        $user->image=$image_completo;
+        
+       }
+      
        // hacer el update a la base de datos
        $user->update();
 
@@ -44,4 +68,9 @@ class UserController extends Controller
   
     }
     //
+    public function getImage($filename)
+    {
+        $file=Storage::disk('users')->get($filename);
+        return new Response($file,200); //si me lo devuelve bien
+    }
 }
