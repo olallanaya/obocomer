@@ -30,7 +30,7 @@ class ImageController extends Controller
             
         ]);
      
-        //recogemo datos los datos
+        //recogemo datos los datoss
          $imagen_ruta=$request->file('image_path');
         $descripcion= $request->input('descripcion');
 
