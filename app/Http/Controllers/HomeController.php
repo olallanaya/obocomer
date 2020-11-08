@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Image;
+use App\Imagen;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-		return view('home');
+      $imagenes= Imagen::orderBy('id','desc')->paginate(4);
+		return view('home',[
+      'images'=>$imagenes]);
 		
     }
 }
