@@ -10,7 +10,8 @@ class Imagen extends Model
     //relacion one to many con los comentarios
     public function comentarios()
     {
-        return $this->hasMany('App\Comentario'); //saca un array de todos los comentarios
+        return $this->hasMany('App\Comentario')->orderBy('id','desc'); 
+        //saca un array de todos los comentarios lo ordenamos para q nos aparezca el mas nuevo primero
     }
     //relacion one to may con los likes
     public function likes()
