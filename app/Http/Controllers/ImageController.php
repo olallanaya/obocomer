@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Imagen;
+use App\Comentario;
+Use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
@@ -71,5 +73,11 @@ class ImageController extends Controller
 
         $imagen=Imagen::find($id);
         return view('image.detalle',['image'=>$imagen]);
+    }
+    public function borrar($id)
+    {
+        $user=\Auth::user();
+        $image=Image::find($id);
+        //Sacamos todos los datos asociados a la imagen para poder borrarlo de la base de datos 
     }
 }

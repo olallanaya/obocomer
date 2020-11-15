@@ -1,0 +1,140 @@
+/*estilos logo*/
+
+.logo {
+    width: 75px;
+}
+
+
+/*avatar general del que viene del fichero include*/
+
+form .avatar {
+    width: 55px;
+    margin-bottom: 15px;
+}
+
+
+/*estilos avatar menu de arriba una vez logeado*/
+
+.navbar .avatar_contenedor,
+.publicacion .avatar_contenedor {
+    width: 35px;
+    height: 35px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.navbar .avatar_contenedor img,
+.publicacion .avatar_contenedor img {
+    height: 100%
+}
+
+.publicacion {
+    margin-bottom: 25px;
+}
+
+.publicacion .container-avatar {
+    float: left;
+    margin-right: 15px;
+}
+
+.publicacion .contenido {
+    font-weight: bold;
+    line-height: 35px;
+}
+
+.publicacion .contenido a {
+    color: violet;
+}
+
+.publicacion .nick {
+    color: green;
+}
+
+.publicacion .fecha {
+    color: grey;
+}
+
+.imagen-contenido {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.imagen-contenido img {
+    width: 100%;
+}
+
+.publicacion .card-body {
+    padding: 0px;
+}
+
+.publicacion .descripcion {
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.publicacion .comentarios {
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.gustas {
+    float: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.gustas img {
+    width: 20px;
+}
+.numero{
+    color:green;
+}
+
+.imagen-detalle {
+    max-height: 500px;
+}
+
+.detalle .comentarios {
+    padding: 20px;
+}
+
+.coment-bt {
+    margin: 10px;
+    
+  
+}
+
+.eliminar {
+    color: red;
+    font-weight: bolder;
+}
+
+.logear {
+    margin: 0;
+}
+/*estilos de perfil.blade*/
+.perfil
+{
+    height:200px;
+    margin-bottom:40px;
+   
+}
+.perfil .avatar_contenedor
+{
+    width:200px;
+    height:200px;
+    border-radius:300px;
+    overflow: hidden;
+    float:right;
+}
+.perfil .avatar_contenedor img{
+    height:100%;
+    width:100%
+}
+
+.info{
+    color:gray
+}
