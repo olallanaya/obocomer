@@ -24,11 +24,15 @@ Route::get('/configuracion', 'UserController@config')->name('config');
 Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
+Route::get('/people', 'UserController@usuarios')->name('user.usuarios');
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
 Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.file');
 Route::get('/imagen/{id}', 'ImageController@detalle')->name('image.detalle');
+Route::get('/imagen/borrar/{id}', 'ImageController@borrar')->name('image.borrar');
+Route::get('/imagen/editar/{id}', 'ImageController@edit')->name('image.edit');
+
 //Rutas del controlador comentario
 Route::post('/comentario/save', 'ComentariosController@save')->name('comentario.save');
 Route::get('/commentario/borrar/{id}', 'ComentariosController@borrar')->name('comentario.borrar');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imagen;
 use App\Comentario;
-Use App\Like;
+use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
@@ -58,26 +58,68 @@ class ImageController extends Controller
         $image->save(); //asi ya lo guardamos directamente a la vase de datos
         //ahora que nos devuelva a la home y que nos muestre q ha sido subida correctamente
         return redirect()->route('home')->with(['message' => 'Subida correctamente']);
-
     }
     //para que muestre las imagenes del contenido
     public function getImage($filename)
     {
-        $file=Storage::disk('imagenes')->get(
-            $filename);
+        $file = Storage::disk('imagenes')->get(
+            $filename
+        );
         return  new Response($file, 200); //si tenemos exito
     }
     // el detalle de la imagen que va a recibirla por la url
     public function detalle($id)
     {
 
-        $imagen=Imagen::find($id);
-        return view('image.detalle',['image'=>$imagen]);
+        $imagen = Imagen::find($id);
+        return view('image.detalle', ['image' => $imagen]);
     }
     public function borrar($id)
-    {
-        $user=\Auth::user();
-        $image=Image::find($id);
-        //Sacamos todos los datos asociados a la imagen para poder borrarlo de la base de datos 
+    {  //Sacamos todos los datos asociados a la imagen para poder borrarlo de la base de datos 
+        $user = \Auth::user();
+        $imagen = Imagen::find($id);
+        $comentarios = Comentario::where('imagen_id', $id)->get();
+        $likes = Like::where('imagen_id', $id)->get();
+
+        //condicion solo podemos eliminar si son nuestras
+        if ($user && $imagen && $imagen->user->id == $user->id) {
+            //eliminar comentario
+            if ($comentarios  && count($comentarios) >= 1) {
+                foreach ($comentarios as $comentario) {
+                    $comentario->delete();
+                }
+            }
+            //eliminar me gusta
+            if ($likes  && count($likes) >= 1) {
+                foreach ($likes as $like) {
+                    $like->delete();
+                }
+                //elimnar ficheros en el storage
+                // primero accedemos a el
+            }
+            Storage::disk('imagenes')->delete($imagen->image_path);
+            //eliminar registro de la imagen
+            $imagen->delete();
+            $message = array('message' => 'A imaxen borrouse');
+        } else {
+            $message = array('message' => 'A imaxen non se borrou');
+        }
+        //vamos a la pagina principal y con una sesion flash para ver el mensaje
+        return redirect()->route('home')->with($message);
     }
+    public function edit($id)
+    {
+            $user= \Auth::user();
+            $image= Imagen::find($id);
+            if($user && $image && $image ->user->id == $user ->id)
+            {
+                    return view('image.edit',[
+                        'image'=>$image
+                    ]);
+            }
+            else {
+                return redirect()->route('home');
+            }
+    }
+
 }

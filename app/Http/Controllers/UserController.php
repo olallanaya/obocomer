@@ -81,5 +81,12 @@ class UserController extends Controller
             'user'=>$user
         ]);
     }
+    public function usuarios()
+    {
+        // mostramos los usuarios que tenemos en la aplicacion
+        $users = User :: orderBy('id','desc')->paginate(10);
+        return view('user.usuarios', ['users'=> $users]);
+
+    }
 }
 
