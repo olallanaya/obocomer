@@ -121,7 +121,10 @@ form .avatar {
     height:200px;
     margin-bottom:40px;
    
+   
 }
+
+
 .perfil .avatar_contenedor
 {
     width:200px;
@@ -132,9 +135,106 @@ form .avatar {
 }
 .perfil .avatar_contenedor img{
     height:100%;
-    width:100%
+
 }
 
-.info{
-    color:gray
+.perfil .info{
+    
+    color:grey;
+    float: left;
+    padding-left: 30px;
+    padding-top: 30px;
 }
+
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+    color:orange;
+    font-weight:bold;
+    font-size:3vh;
+
+  }
+  .login {
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+   
+  
+  }
+  
+  #boton_seccion1 {
+    background: transparent;
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    left: 5%;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 20px;
+    padding: 10px 30px;
+    overflow: hidden;
+ 
+}
+
+#boton_seccion1:before {
+    content: "";
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: .5s;
+}
+
+#boton_seccion1:after {
+    content: "";
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    transition: .5s;
+}
+
+#boton_seccion1:hover:before {
+    width: 100%;
+    height: 100%;
+}
+
+#boton_seccion1:hover:after {
+    width: 100%;
+    height: 100%;
+}
+
+
+    .fondo{
+        background-image: url(imagenes/gente.jpg);
+        background-repeat:repeat; 
+        background-size: cover; 
+        height: 100vh;
+       
+      
+    }
+    .logear{
+        padding:40px;
+    }
+    @media (max-width: 940px) {
+        .desaparecer{
+            visibility: hidden;
+
+        }
+        
+    }
+/* todos os titulos e as letras*/
+.titulo{
+    padding:10px;
+    color:orange;
+}
+
