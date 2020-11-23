@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row fondo">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <!--vamos a crear solo una vista para la subida de la imagen-->
-                <div class="card">
-                    <div class="card-header"> Engade unha nova imaxe
+                <div class="card" style="margin-top:40px">
+                    <div class="card-header cabeza"> Engade unha nova imaxe
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body" >
                         <form method="POST" action="{{ route('image.save') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
@@ -36,13 +37,14 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row justify-content-center">
 
-                                <div class="col-md-7 offset-md-5">
-                                    <input type="submit" class="btn btn-success coment-bt" value="Subea" />
+                                <div class="col-md-7">
+                                    <input type="submit" class="btn btn-outline-success btn-block" value="Subea" />
 
                                 </div>
                             </div>
+
                     </div>
 
 

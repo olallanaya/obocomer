@@ -62,7 +62,7 @@ class UserController extends Controller
         // hacer el update a la base de datos
         $user->update();
 
-        return redirect()->route('config')
+        return redirect()->route('home')
             ->with(['message' => "Usuario actualizado"]);
     }
  
