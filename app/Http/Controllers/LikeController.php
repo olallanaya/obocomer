@@ -14,6 +14,7 @@ class LikeController extends Controller
 	public function index(){
 		//mostramos los likes
 		$user = \Auth::user();
+		
 		/* queremos sacar los likes del usuario identificado*/ 
 		$likes = Like::where('user_id', $user->id)->orderBy('id', 'desc')->paginate(5);
 		
@@ -34,6 +35,7 @@ class LikeController extends Controller
 		if($isset_like == 0){
 			$like = new Like();
 			$like->user_id = $user->id;
+
 			$like->imagen_id = (int)$image_id; //x defecto lo guarda como string lo tenemos q convertir
 
 			// Guardar

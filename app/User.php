@@ -41,4 +41,16 @@ class User extends Authenticatable
     public function imagenes(){
         return $this->hasMany('App\Imagen');
     }
+
+    //creamos la relacion muchos a muchos por que un restaurante puede tener muchos usuarios y muchos usuarios muchos restaurntes
+    /*public function restaurante()
+    {
+        return  $this->belongsToMany(Restaurante:: class,'rest_user','user_id','rest_id'); //rest_user
+
+    }*/
+    public function restaurante()
+    {
+        return $this->belongsTo('App\Restaurante');
+    }
+  
 }

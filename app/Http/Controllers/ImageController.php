@@ -36,6 +36,7 @@ class ImageController extends Controller
         //recogemos  datoss
         $imagen_ruta = $request->file('image_path');
         $descripcion = $request->input('descripcion');
+       
 
         /*var_dump($imagen_ruta);
         var_dump($descripcion);
@@ -107,19 +108,6 @@ class ImageController extends Controller
         //vamos a la pagina principal y con una sesion flash para ver el mensaje
         return redirect()->route('home')->with($message);
     }
-    public function edit($id)
-    {
-            $user= \Auth::user();
-            $image= Imagen::find($id);
-            if($user && $image && $image ->user->id == $user ->id)
-            {
-                    return view('image.edit',[
-                        'image'=>$image
-                    ]);
-            }
-            else {
-                return redirect()->route('home');
-            }
-    }
+
 
 }
