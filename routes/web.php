@@ -22,10 +22,11 @@ Route::get('/', 'HomeController@index')->name('home');
 //user controladores
 Route::get('/configuracion', 'UserController@config')->name('config');
 Route::post('/user/update', 'UserController@update')->name('user.update');
-
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios');
+//restaurante controladores
+Route::get('/restaurante/{buscar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');

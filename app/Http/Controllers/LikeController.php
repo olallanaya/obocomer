@@ -29,7 +29,8 @@ class LikeController extends Controller
 		
 		// No duplicar los likes
 		$isset_like = Like::where('user_id', $user->id)
-				            ->where('imagen_id', $image_id)
+							->where('imagen_id', $image_id)
+							
 							->count();
 	
 		if($isset_like == 0){

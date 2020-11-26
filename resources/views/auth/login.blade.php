@@ -78,7 +78,7 @@
           <div class="col-8  desaparecer">
             <div class="abs-center">
                 <h1> A tua rede social para compartir os teus recunchos e coñecer os mellores bares</h1>
-                <a id="boton_seccion1" href="">Os nosos bares</a>
+                <a id="boton_seccion1"  href="{{ route('restaurante.restaurante')}}">Os nosos bares</a>
             </div>
         </div>
     </div>
