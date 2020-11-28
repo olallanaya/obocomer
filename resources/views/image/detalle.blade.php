@@ -27,7 +27,7 @@
                             <img src="{{ route('image.file', ['filename' => $image->image_path]) }}" />
                         </div>
                         <div class="restaurante">
-                        <span class"rest">{{ $image->restaurante->nombre }} </span>
+                        <span class"rest">{{ $image->restaurante->nombre }}</span>
                         </div>
                         <div class="descripcion">
                             <span class="nick">{{ '@' . $image->user->nick }}</span>

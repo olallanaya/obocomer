@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+ @inject('rest', 'App\Restaurante')
 <div class="row fondo">
     <div class="container">
         <div class="row justify-content-center">
@@ -37,6 +38,26 @@
                                     @endif
                                 </div>
                             </div>
+                        <div class="form-group row">
+                                <label for="restaurante" class="col-md-3 col-form-label text-md-right ">Bar</label>
+                             <div class="col-md-6">
+                                    <select id="restaurante" name="restaurante" class="form-control{{ $errors->has('rest_id') ? ' is-invalid' : '' }} requiered">
+                                        @foreach($rest->get() as $index => $rest)
+                                            <option value="{{ $index+1 }}" {{ old('rest_id') == $index ? 'selected' : '' }}>
+                                                {{ $rest->nombre }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('rest_id'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('rest_id') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
                             <div class="form-group row justify-content-center">
 
                                 <div class="col-md-7">
