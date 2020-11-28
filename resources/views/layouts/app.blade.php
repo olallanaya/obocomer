@@ -89,6 +89,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('image.create') }}">Subida de imaxenes</a>
         </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{{ route('reserva.create') }}">Fai a tua reserva</a>
+        </li>
         <li>
 
             @include('includes.avatar')

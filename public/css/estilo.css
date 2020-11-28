@@ -270,3 +270,9 @@ form .avatar {
     padding-left: 30px;
     padding-top: 30px;
 }
+/* o asterisco do formuario de reserva*/
+.anotaciones
+{
+color:green;
+font: size 6px;;
+}

@@ -30,6 +30,7 @@ class ImageController extends Controller
     { //hacemos la validacion
         $validate = $this->validate($request, [
             'descripcion' => 'required',
+            'restaurante'=>'required',
             'image_path' => 'required | image',
 
         ]);

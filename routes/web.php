@@ -29,8 +29,13 @@ Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios'
 Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
 Route::get('/restaurante/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
 Route::get('/novo', 'RestauranteController@create')->name('restaurante.create');
-
 Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+//menu contraladores
+Route::get('/menu', 'MenuController@mostrar')->name('menu.mostrar');
+// reserva
+Route::get('/reserva', 'ReservaController@create')->name('reserva.create');
+Route::post('/reserva/save', 'ReservaController@save')->name('reserva.save');
+
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
