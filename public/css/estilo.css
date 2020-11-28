@@ -242,5 +242,31 @@ form .avatar {
     color:green;
     font-weight: bolder;
 }
+/* restaurante*/
+.rest
+{
+    height:150px;
+    margin-bottom:40px;
+   
+   
+}
+.rest .rest_contenedor
+{
+    width:200px;
+    height:200px;
+    border-radius:300px;
+    overflow: hidden;
+   
+}
+.rest .rest_contenedor img{
+    height:100%;
 
+}
 
+.rest .infor{
+    
+    color:grey;
+    float: left;
+    padding-left: 30px;
+    padding-top: 30px;
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imagen;
 use App\Comentario;
 use App\Like;
+use App\Restaurante;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
@@ -36,6 +37,7 @@ class ImageController extends Controller
         //recogemos  datoss
         $imagen_ruta = $request->file('image_path');
         $descripcion = $request->input('descripcion');
+        $restaurante=$request->input('restaurante');
        
 
         /*var_dump($imagen_ruta);
@@ -45,6 +47,7 @@ class ImageController extends Controller
         $user = \Auth::user(); //necesitamos acceder a usuario para relacionarlo con  el id con la imagen
         $image = new Imagen();
         $image->user_id = $user->id;
+        $image->rest_id=$restaurante;
 
         $image->descripcion = $descripcion;
 

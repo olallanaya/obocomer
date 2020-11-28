@@ -7,7 +7,7 @@
                     </div>
                     @endif
                    <div class="contenido">
-                    <a href="{{route('perfil',['id'=>$image->user->id])}}">
+                    <a href="{{route('image.detalle',['id'=>$image->user->id])}}">
                         {{$image->user->name}}
                         <span class="nick"> {{ '| @'.$image->user->nick}}</span>
                     </a>
@@ -18,8 +18,7 @@
                         <img src="{{route('image.file',['filename'=>$image->image_path])}}"/>
                     </div>
                      <div class="restaurante">
-                         <span class"rest">{{ $image->restaurante->nombre }} </span>
-                     
+                        <span class"rest">{{ $image->restaurante->nombre }}</span>
                         </div>
                         </div>
                     <div class="descripcion">

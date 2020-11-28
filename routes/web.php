@@ -26,7 +26,11 @@ Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.ava
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios');
 //restaurante controladores
-Route::get('/restaurante/{buscar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
+Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
+Route::get('/restaurante/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
+Route::get('/novo', 'RestauranteController@create')->name('restaurante.create');
+
+Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');

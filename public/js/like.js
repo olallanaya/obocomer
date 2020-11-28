@@ -53,10 +53,16 @@ window.addEventListener("load", function(){
 	}
 	dislike();
 	
-	// BUSCADOR
+	// BUSCADOR comederos
 	$('#buscador').submit(function(e){
+	
 		$(this).attr('action',url+'/people/'+$('#buscador #buscar').val());
 
 	});
+//BUSCADOR bares
+$('#search').submit(function(e){
 	
+	$(this).attr('action',url+'/restaurante/'+$('#search #search2').val());
+
+});
 });

@@ -12,4 +12,5 @@ class Restaurante extends Model
 public function imagenes(){
     return $this->hasMany('App\Imagen');
 }
+
 }
