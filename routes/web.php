@@ -29,6 +29,7 @@ Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios'
 Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
 Route::get('/restaurante/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
 Route::get('/novo', 'RestauranteController@create')->name('restaurante.create');
+<<<<<<< HEAD
 Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
 //menu contraladores
 Route::get('/menu', 'MenuController@mostrar')->name('menu.mostrar');
@@ -36,6 +37,10 @@ Route::get('/menu', 'MenuController@mostrar')->name('menu.mostrar');
 Route::get('/reserva', 'ReservaController@create')->name('reserva.create');
 Route::post('/reserva/save', 'ReservaController@save')->name('reserva.save');
 
+=======
+
+Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+>>>>>>> a1aa7e948208b85e635b97770d9feb3e23e3668a
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
