@@ -64,5 +64,9 @@ $('#search').submit(function(e){
 	
 	$(this).attr('action',url+'/restaurante/'+$('#search #search2').val());
 
-});
+});/*
+$('#myModal').on('hidden.bs.modal', function (e) {
+	$(this).removeData('bs.modal');
+	 $(this).find('.modal-body').empty();
+ });*/
 });

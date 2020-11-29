@@ -30,8 +30,8 @@ Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name(
 Route::get('/restaurante/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
 Route::get('/novo', 'RestauranteController@create')->name('restaurante.create');
 Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
-//menu contraladores
-Route::get('/menu', 'MenuController@mostrar')->name('menu.mostrar');
+Route::get('/restaurante/detalle/{id?}', 'RestauranteController@detalle')->name('restaurante.detalle');
+
 // reserva
 Route::get('/reserva', 'ReservaController@create')->name('reserva.create');
 Route::post('/reserva/save', 'ReservaController@save')->name('reserva.save');
