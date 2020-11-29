@@ -82,9 +82,11 @@
                         <div class="clearfix"> </div>
                         <div class="comentarios">
                             <h4> Comentarios ( {{ count($image->comentarios) }} )</h4>
+                           
                             <form method="POST" action="{{ route('comentario.save') }}">
                                 @csrf
                                 <input type="hidden" name="imagen_id" value="{{ $image->id }}" />
+                                <input type="hidden" name="rest_id" value="{{ $image->restaurante->id }}"/>
                                 <textarea class="form-control" name="comentario" required></textarea>
                                 @if ($errors->has('comentario'))
                                     <span class="alert-danger" role="alert">

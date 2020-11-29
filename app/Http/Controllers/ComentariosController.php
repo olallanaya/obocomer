@@ -28,10 +28,12 @@ class ComentariosController extends Controller
         $user= \Auth::user();
         $image_id = $request->input('imagen_id');
         $comentario = $request->input('comentario');
+    $restaurante=$request->input('rest_id');
         //creamos un objeto comentario y asignamos los valores a los campos de la base de datos
    
         $coment=new Comentario();
         $coment->user_id=$user->id;
+        $coment->rest_id=$restaurante;
         $coment->imagen_id=$image_id;
         $coment->contenido=$comentario;
       

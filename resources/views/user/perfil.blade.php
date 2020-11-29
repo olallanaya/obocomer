@@ -20,14 +20,14 @@
                  <h5> Conta creada:{{$user->created_at}}</h5> 
                  </div>
             </div>
-            </div>
-            <div class="clearfix"></div>
+            
                 @foreach($user->imagenes as $image)
+                
                     @include('includes.image',['image'=>$image])
                 @endforeach
              
             </div>
-
+</div>
 </div>
 
         

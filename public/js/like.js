@@ -32,7 +32,7 @@ window.addEventListener("load", function(){
 	// Botón de dislike
 	function dislike(){
 		$('.btn-dislike').unbind('click').click(function(){
-			console.log('dislike');
+			
 			$(this).addClass('btn-like').removeClass('btn-dislike');
 			$(this).attr('src', url+'/imagenes/up.jpg');
 			

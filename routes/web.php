@@ -51,7 +51,8 @@ Route::post('/comentario/save', 'ComentariosController@save')->name('comentario.
 Route::get('/commentario/borrar/{id}', 'ComentariosController@borrar')->name('comentario.borrar');
 
 // Rutas del controlador like 
-Route::get('/like/{imagen_id}', 'LikeController@like')->name('like.save');
-Route::get('/dislike/{imagen_id}', 'LikeController@dislike')->name('like.delete');
+
+Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
+Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
 Route::get('/likes', 'LikeController@index')->name('likes');
 ?>

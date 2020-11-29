@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Like;
-
 class LikeController extends Controller
 {
 	public function __construct(){
@@ -30,20 +29,18 @@ class LikeController extends Controller
 		// No duplicar los likes
 		$isset_like = Like::where('user_id', $user->id)
 							->where('imagen_id', $image_id)
-							
 							->count();
-	
+	//hacemos la condicción
 		if($isset_like == 0){
 			$like = new Like();
 			$like->user_id = $user->id;
-
 			$like->imagen_id = (int)$image_id; //x defecto lo guarda como string lo tenemos q convertir
-
 			// Guardar
 			$like->save();
 		//creamos un archivo json para los mensajes
 			return response()->json([
-				'like' => $like
+				'like' => $like,
+				'message' => 'Has dado like'
 			]);
 		}else{
 			return response()->json([
@@ -79,7 +76,4 @@ class LikeController extends Controller
         }
 
 	}
-	
-
-
 }
