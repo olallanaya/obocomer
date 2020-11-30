@@ -27,9 +27,7 @@ Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios');
 //restaurante controladores
 Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
-Route::get('/restaurante/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
-Route::get('/novo', 'RestauranteController@create')->name('restaurante.create');
-Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+Route::get('/admin/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
 Route::get('/restaurante/detalle/{id?}', 'RestauranteController@detalle')->name('restaurante.detalle');
 
 // reserva
@@ -55,4 +53,9 @@ Route::get('/commentario/borrar/{id}', 'ComentariosController@borrar')->name('co
 Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
 Route::get('/likes', 'LikeController@index')->name('likes');
-?>
+
+// rutas del middleware administrador
+Route::group(['middleware' => 'admin'], function () {
+Route::get('/admin/novo', 'RestauranteController@create')->name('restaurante.create');
+Route::post('/admin/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+});

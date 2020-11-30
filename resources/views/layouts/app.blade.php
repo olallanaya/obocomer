@@ -91,7 +91,7 @@
         </li>
            <li class="nav-item">
             <a class="nav-link" href="{{ route('reserva.create') }}">Fai a tua reserva</a>
-        </li>
+      
         <li>
 
             @include('includes.avatar')
@@ -116,6 +116,22 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+
+            </div>
+        </li>
+          </li>
+                <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                Administrador <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('restaurante.create') }}">
+                   Crear bares
+                </a>
+                <a class="dropdown-item" href="">
+                  Modificar datos bares
+                </a>
 
             </div>
         </li>
