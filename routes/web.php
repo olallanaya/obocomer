@@ -35,7 +35,7 @@ Route::get('/reserva', 'ReservaController@create')->name('reserva.create');
 Route::post('/reserva/save', 'ReservaController@save')->name('reserva.save');
 
 
-Route::post('/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
@@ -58,4 +58,8 @@ Route::get('/likes', 'LikeController@index')->name('likes');
 Route::group(['middleware' => 'admin'], function () {
 Route::get('/admin/novo', 'RestauranteController@create')->name('restaurante.create');
 Route::post('/admin/restaurante/save', 'RestauranteController@save')->name('restaurante.save');
+Route::get('/admin/listado', 'RestauranteController@listado')->name('restaurante.listado');
+Route::get('/admin/borrar/{id}', 'RestauranteController@borrar')->name('restaurante.borrar');
+Route::get('/admin/modificar/{id}', 'RestauranteController@edit')->name('restaurante.editar');
+Route::post('/admin/update', 'RestauranteController@update')->name('restaurante.update');
 });

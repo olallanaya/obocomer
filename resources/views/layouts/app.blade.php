@@ -129,7 +129,7 @@
                 <a class="dropdown-item" href="{{ route('restaurante.create') }}">
                    Crear bares
                 </a>
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="{{ route('restaurante.listado') }}">
                   Modificar datos bares
                 </a>
 
