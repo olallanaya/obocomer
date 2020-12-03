@@ -25,6 +25,7 @@ Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios');
+Route::get('/avatar/foto', 'UserController@foto')->name('user.foto');
 //restaurante controladores
 Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
 Route::get('/admin/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');
@@ -62,4 +63,7 @@ Route::get('/admin/listado', 'RestauranteController@listado')->name('restaurante
 Route::get('/admin/borrar/{id}', 'RestauranteController@borrar')->name('restaurante.borrar');
 Route::get('/admin/modificar/{id}', 'RestauranteController@edit')->name('restaurante.editar');
 Route::post('/admin/update', 'RestauranteController@update')->name('restaurante.update');
+
+Route::get('/admin/reservas/{id?}', 'ReservaController@detalle')->name('reserva.mostrar');
+
 });

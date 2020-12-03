@@ -65,7 +65,35 @@ class UserController extends Controller
         return redirect()->route('home')
             ->with(['message' => "Usuario actualizado"]);
     }
+ public function foto(Request $request)
+ {
+    
+    { //usuario identificado
+
+        $user = \Auth::user();
+        $id = $user->id;
+        //validamos el formulario 
+    
+       
+        $image = $request->file('image');
+        if ($image) {
+            $image_completo = time() . $image->getClientOriginalName(); //asi tiene un nombre unico por q le ponemos la hora
+            //usuamos storage tambien tenemos q crear la depedencia file. Disck permite seleccionar en donde y con put guardamos la imagen
+            //asi la guardamos en storage/app/users
+            Storage::disk('users')->put($image_completo, File::get($image));
+            //le doy nombre a la imagen el objeto
+            $user->image = $image_completo;
+        }
+
+        // hacer el update a la base de datos
+        $user->update();
+
+        return redirect()->route('home')
+            ->with(['message' => ""]);
+    }
  
+
+ }
     //
     public function getImage($filename)
     {

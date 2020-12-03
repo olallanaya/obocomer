@@ -86,13 +86,17 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('restaurante.restaurante') }}">Os nosos bares</a>
         </li>
+       
         <li class="nav-item">
             <a class="nav-link" href="{{ route('image.create') }}">Subida de imaxenes</a>
         </li>
            <li class="nav-item">
             <a class="nav-link" href="{{ route('reserva.create') }}">Fai a tua reserva</a>
       
-        <li>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.foto') }}">AVATAR </a>
+        </li>
 
             @include('includes.avatar')
 

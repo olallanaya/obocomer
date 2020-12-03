@@ -25,7 +25,9 @@ class Imagen extends Model
     }
     //relacion de muchos a uno con restaurante
     public function restaurante()
+  
     {
         return $this->belongsTo('App\Restaurante','rest_id');
+      /*  return $this->hasMany('App\Restaurante');*/
     }
 }
