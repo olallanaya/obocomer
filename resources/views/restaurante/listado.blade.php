@@ -37,6 +37,7 @@
                            <a href="{{ route('restaurante.borrar', ['id' => $restaurante->id]) }}" class="btn btn-outline-success btn-block">Borrar</a>
                              <a href="{{ route('restaurante.editar', ['id' => $restaurante->id]) }}" class="btn btn-outline-success btn-block">Editar</a>
                         <a href="{{ route('reserva.mostrar', ['id' => $restaurante->id]) }}" class="btn btn-outline-success btn-block">Reservas</a>
+                     
                         </div>
 
                     </div>
