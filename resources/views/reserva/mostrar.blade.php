@@ -23,6 +23,7 @@
                                  <th>HORARIO</th>
                                 <th>COMENSALES</th>
                                 <th>COMENTARIOS</th>
+                                <th>FECHA DE REALIZACION </th>
 
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                     <td> {{ $res->horario }} </td>
                                     <td> {{ $res->numero }} </td>
                                     <td> {{ $res->comentarios }} </td>
+                                    <td> {{ $res->created_at}}
 
                                 </tr>
 

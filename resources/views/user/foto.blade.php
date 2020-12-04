@@ -7,11 +7,11 @@
            
             
             <div class="card">
-                <div class="card-header cabeza">{{ __('Configuracion ') }}</div>
+                <div class="card-header cabeza">SUBE A TUA FOTO DE AVATAR</div>
 
                 <div class="card-body">
         
-                    <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.create') }}" enctype="multipart/form-data">
                         @csrf
 
                        

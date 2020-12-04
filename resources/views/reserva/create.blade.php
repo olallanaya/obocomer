@@ -65,7 +65,7 @@
                                             <option value=""'selected'> Escolle un bar</option>
                                             @foreach ($rest->get() as $index => $rest)
 
-                                                <option value="{{ $index+1}}">
+                                             
                                                 <option value="{{ $index + 1 }}" {{ old('rest_id') == $index ?: '' }}>
                                                     {{ $rest->nombre }}
                                                 </option>

@@ -65,7 +65,13 @@ class UserController extends Controller
         return redirect()->route('home')
             ->with(['message' => "Usuario actualizado"]);
     }
- public function foto(Request $request)
+
+    public function foto()
+    {
+        //vamos a cargar la vista
+        return view('user.foto');
+    }
+ public function create(Request $request)
  {
     
     { //usuario identificado
@@ -89,7 +95,7 @@ class UserController extends Controller
         $user->update();
 
         return redirect()->route('home')
-            ->with(['message' => ""]);
+            ->with(['message' => "Imaxe de avatar cambiada"]);
     }
  
 

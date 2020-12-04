@@ -26,6 +26,7 @@ Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.ava
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 Route::get('/people/{buscar?}', 'UserController@usuarios')->name('user.usuarios');
 Route::get('/avatar/foto', 'UserController@foto')->name('user.foto');
+Route::post('/user/avatarfoto', 'UserController@create')->name('user.create');
 //restaurante controladores
 Route::get('/restaurante/{atopar?}', 'RestauranteController@restaurante')->name('restaurante.restaurante');
 Route::get('/admin/restaurante/{filename}', 'RestauranteController@getImage')->name('restaurante.imagen');

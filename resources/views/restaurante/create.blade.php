@@ -4,7 +4,7 @@
  <div class="row fondo">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
 
                 <div class="card">
                     <div class="card-header cabeza">{{ __('Un novo bar ') }}</div>
@@ -14,9 +14,9 @@
                         <form method="POST" action="{{ route('restaurante.save') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group row">
+                            <div class="form-group row justify-content-center">
 
-                                <div class="col-md-6">
+                                <div class="col-md-10">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                         placeholder="nome" name="name" required autocomplete="name" autofocus>
 
@@ -28,9 +28,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                             <div class="form-group row justify-content-center">
 
-                                <div class="col-md-6">
+                                <div class="col-md-10">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                         placeholder="email" name="email" required autocomplete="email">
                                     @if ($errors->has('email'))
@@ -40,10 +40,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-md-10">
                                     <input id="direccion" type="text" class="form-control" name="telefono"
                                         placeholder="telefono">
                                     @if ($errors->has('telefono'))
@@ -54,11 +52,8 @@
                                     @endif
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-
-
-                                <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+                                <div class="col-md-10">
                                     <input id="direccion" type="text" class="form-control" name="direccion"
                                         placeholder="direccion">
                                     @if ($errors->has('direccion'))
@@ -69,9 +64,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-
-                                <div class="col-md-6">
+                       <div class="form-group row justify-content-center">
+                                <div class="col-md-10">
                                     <input id="localidad" type="text" class="form-control" name="localidad"
                                         placeholder="localidad">
                                     @if ($errors->has('localidad'))
@@ -82,10 +76,9 @@
                                     @endif
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+            
+                                <div class="col-md-10">
                                     <select id="provincia" class="form-control" name="provincia">
                                         <option selected value=" "> Seleccione provincia
                                         </option>
@@ -144,10 +137,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                             <div class="form-group row justify-content-center">
 
-                                <div class="col-md-7">
-                                                                     <textarea id="descripcion" name="descripcion" class="form-control" required  placeholder="Descripción"></textarea>
+                                <div class="col-md-10">
+                                 <textarea id="descripcion" name="descripcion" class="form-control" required  placeholder="Descripción"></textarea>
                                     @if ($errors->has('descripcion'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('descripcion') }}</strong>
@@ -156,9 +149,10 @@
                                     @endif
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
-                                <label for="image_path" class="col-md-3 col-form-label text-md-right ">Imaxen</label>
-                                <div class="col-md-7">
+                                <label for="image_path" class="col-md-2 col-form-label text-md-right ">Imaxen</label>
+                                <div class="col-md-9">
                                     <input id="image_path" type="file" name="image_path" class="form-control" required />
                                     @if ($errors->has('image_path'))
                                         <span class="invalid-feedback" role="alert">
@@ -170,7 +164,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="menu" class="col-md-3 col-form-label text-md-right ">Sube a tu carta</label>
-                                <div class="col-md-7">
+                                <div class="col-md-9">
                                     <input id="menu" type="file" name="menu" class="form-control" required />
                                     @if ($errors->has('menu'))
                                         <span class="invalid-feedback" role="alert">
