@@ -30,7 +30,7 @@ class ImageController extends Controller
     { //hacemos la validacion
         $validate = $this->validate($request, [
             'descripcion' => 'required',
-            'restaurante'=>'required',
+            'restaurante' => 'required',
             'image_path' => 'required | image',
 
         ]);
@@ -38,8 +38,8 @@ class ImageController extends Controller
         //recogemos  datoss
         $imagen_ruta = $request->file('image_path');
         $descripcion = $request->input('descripcion');
-        $restaurante=$request->input('restaurante');
-       
+        $restaurante = $request->input('restaurante');
+
 
         /*var_dump($imagen_ruta);
         var_dump($descripcion);
@@ -48,7 +48,7 @@ class ImageController extends Controller
         $user = \Auth::user(); //necesitamos acceder a usuario para relacionarlo con  el id con la imagen
         $image = new Imagen();
         $image->user_id = $user->id;
-        $image->rest_id=$restaurante;
+        $image->rest_id = $restaurante;
 
         $image->descripcion = $descripcion;
 
@@ -112,6 +112,4 @@ class ImageController extends Controller
         //vamos a la pagina principal y con una sesion flash para ver el mensaje
         return redirect()->route('home')->with($message);
     }
-
-
 }

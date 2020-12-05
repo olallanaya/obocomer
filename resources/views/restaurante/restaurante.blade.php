@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -15,7 +13,6 @@
             <div class="col-md-10">
                 <div class="titulo text-center">
                     <h1>Os nosos bares</h1>
-                   
 
                 </div>
 
@@ -35,19 +32,21 @@
                 @foreach ($restaurante as $restaurante)
                     <div class="perfil">
                         @if ($restaurante->image)
-                        
+
                             <div class="avatar_contenedor zoom">
-                            
+
                                 <img src="{{ route('restaurante.imagen', ['filename' => $restaurante->image]) }}"
                                     class="avatar" />
                             </div>
                         @endif
 
                         <div class="info">
-                            <h2>  <a href="{{ route('restaurante.detalle', ['id' => $restaurante->id]) }}">{{ $restaurante->nombre }} </h2></a>
+                            <h2> <a href="{{ route('restaurante.detalle', ['id' => $restaurante->id]) }}">{{ $restaurante->nombre }}
+                            </h2></a>
                             <h6>{{ $restaurante->email }} </h6>
-                           <a href="{{ route('restaurante.detalle', ['id' => $restaurante->id]) }}" class="btn btn-outline-success btn-block">Mais datos</a>
-                           
+                            <a href="{{ route('restaurante.detalle', ['id' => $restaurante->id]) }}"
+                                class="btn btn-outline-success btn-block">Mais datos</a>
+
                         </div>
 
                     </div>
@@ -56,8 +55,6 @@
 
                 @endforeach
 
-
-
             </div>
             <div class="clearfix"></div>
 
@@ -65,6 +62,3 @@
         </div>
     </div>
 @endsection
-
-
-

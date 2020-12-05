@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//la raiz del proyecto
 Route::get('/', 'HomeController@index')->name('home');
 //user controladores
 Route::get('/configuracion', 'UserController@config')->name('config');
@@ -36,8 +36,6 @@ Route::get('/restaurante/detalle/{id?}', 'RestauranteController@detalle')->name(
 Route::get('/reserva', 'ReservaController@create')->name('reserva.create');
 Route::post('/reserva/save', 'ReservaController@save')->name('reserva.save');
 
-
-
 //Imagen controlador
 Route::get('/subida-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
@@ -45,17 +43,13 @@ Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.fi
 Route::get('/imagen/{id}', 'ImageController@detalle')->name('image.detalle');
 Route::get('/imagen/borrar/{id}', 'ImageController@borrar')->name('image.borrar');
 Route::get('/imagen/editar/{id}', 'ImageController@edit')->name('image.edit');
-
 //Rutas del controlador comentario
 Route::post('/comentario/save', 'ComentariosController@save')->name('comentario.save');
 Route::get('/commentario/borrar/{id}', 'ComentariosController@borrar')->name('comentario.borrar');
-
 // Rutas del controlador like 
-
 Route::get('/like/{image_id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete');
 Route::get('/likes', 'LikeController@index')->name('likes');
-
 // rutas del middleware administrador
 Route::group(['middleware' => 'admin'], function () {
 Route::get('/admin/novo', 'RestauranteController@create')->name('restaurante.create');
@@ -64,7 +58,6 @@ Route::get('/admin/listado', 'RestauranteController@listado')->name('restaurante
 Route::get('/admin/borrar/{id}', 'RestauranteController@borrar')->name('restaurante.borrar');
 Route::get('/admin/modificar/{id}', 'RestauranteController@edit')->name('restaurante.editar');
 Route::post('/admin/update', 'RestauranteController@update')->name('restaurante.update');
-
 Route::get('/admin/reservas/{id?}', 'ReservaController@detalle')->name('reserva.mostrar');
 
 });

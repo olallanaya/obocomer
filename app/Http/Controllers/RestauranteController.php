@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class RestauranteController extends Controller
         $file = Storage::disk('users')->get($filename);
         return new Response($file, 200); //si me lo devuelve bien
     }
-  
+
 
     public function create()
     {
@@ -40,10 +41,9 @@ class RestauranteController extends Controller
     public function save(Request $request)
     {
         //guardar los datos enviados del forumulario
-       
+
         $validate = $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
-
             'email' => ['required', 'string', 'email', 'max:255', 'unique:restaurantes,email'], //hacemos q sea unico pero q tenga en cuenta el anterior
 
         ]);
@@ -56,10 +56,9 @@ class RestauranteController extends Controller
         $localidad = $request->input('localidad');
         $provincia = $request->input('provincia');
         $imagen_ruta = $request->file('image_path');
-        $menu=$request->file('menu');
-
+        $menu = $request->file('menu');
         $restaurante = new Restaurante(); //creamos un nuevo objeto
-        //asignar los valores para la vase de datos
+        //asignar los valores para la base de datos
         $restaurante->nombre = $name;
         $restaurante->email = $email;
         $restaurante->telefono = $telefono;
@@ -67,7 +66,6 @@ class RestauranteController extends Controller
         $restaurante->direccion = $direccion;
         $restaurante->localidad = $localidad;
         $restaurante->provincia = $provincia;
-       
         // imagenenes
         if ($imagen_ruta) {
             $image_completo = time() . $imagen_ruta->getClientOriginalName();
@@ -79,24 +77,17 @@ class RestauranteController extends Controller
             Storage::disk('users')->put($menu_completo, File::get($menu));
             $restaurante->menu = $menu_completo; //esto es lo q guardaremos en la base de datos
         }
-
         $restaurante->save(); //lo guardamos a la base de datos
         return redirect()->route('restaurante.restaurante')->with(['message' => 'Novo bar creado con exito']);
-    
     }
-
     public function listado()
     {
         //vamos a cargar la vista del listado de todos los forumularios
         $rest = Restaurante::orderBy('id', 'desc')->paginate(10);
-      
         return view('restaurante.listado', ['restaurante' => $rest]);
     }
-  
-
     public function detalle($id)
     {
-        
         $restaurante = Restaurante::find($id);
         return view('restaurante.detalle', [
             'restaurante' => $restaurante
@@ -104,12 +95,11 @@ class RestauranteController extends Controller
     }
     public function borrar($id)
     {  //Sacamos todos los datos asociados a la imagen para poder borrarlo de la base de datos 
-      
         $restaurante = Restaurante::find($id);
         $reservas = Reserva::where('rest_id', $id)->get();
         $imagenes = Imagen::where('rest_id', $id)->get();
-        if($restaurante){
-         if ($reservas  && count($reservas) >= 1) {
+        if ($restaurante) {
+            if ($reservas  && count($reservas) >= 1) {
                 foreach ($reservas as $reserva) {
                     $reserva->delete();
                     Storage::disk('users')->delete($reserva->image);
@@ -118,46 +108,43 @@ class RestauranteController extends Controller
             }
 
             //eliminar imagenes
-               if ($imagenes  && count($imagenes) >= 1) {
+            if ($imagenes  && count($imagenes) >= 1) {
                 foreach ($imagenes as $imagen) {
-            Storage::disk('imagenes')->delete($imagen->image_path);
-             $imagen->delete();
-               }
-               }
+                    Storage::disk('imagenes')->delete($imagen->image_path);
+                    $imagen->delete();
+                }
+            }
             $restaurante->delete();
             $message = array('message' => ' o bar borrouse');
-        
-    }
-        else {
+        } else {
             $message = array('message' => 'O bar non se borrou');
         }
-        
+
         //vamos a la pagina principal y con una sesion flash para ver el mensaje
         return redirect()->route('restaurante.listado')->with($message);
     }
-    public function edit($id){
-	
+    public function edit($id)
+    {
         $restaurante = Restaurante::find($id);
-		
-	
-			return view('restaurante.editar', [
-				'restaurante' => $restaurante
-			]);
-	
-	}
-	
-	public function update(Request $request){
-        $rest_id=$request->input('rest_id');
-		//Validación
+
+        return view('restaurante.editar', [
+            'restaurante' => $restaurante
+        ]);
+    }
+
+    public function update(Request $request)
+    { //actualizamos los datos del restaurante
+        $rest_id = $request->input('rest_id');
+        //Validación
         $validate = $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $rest_id], //hacemos q sea unico pero q tenga en cuenta el anterior
 
         ]);
-		
+
         // Recoger datos
-       
+
         $name = $request->input('name');
         $email = $request->input('email');
         $telefono = $request->input('telefono');
@@ -166,11 +153,11 @@ class RestauranteController extends Controller
         $localidad = $request->input('localidad');
         $provincia = $request->input('provincia');
         $image = $request->file('image');
-        $menu=$request->file('menu');
-		
-		// Conseguir objeto image
-		$restaurante = Restaurante::find($rest_id);
-    
+        $menu = $request->file('menu');
+
+        // Conseguir objeto image
+        $restaurante = Restaurante::find($rest_id);
+
         //asignar los valores para la base de datos
         $restaurante->nombre = $name;
         $restaurante->email = $email;
@@ -180,12 +167,8 @@ class RestauranteController extends Controller
         $restaurante->localidad = $localidad;
         $restaurante->provincia = $provincia;
 
-		
-		// Subir fichero
-	
-        
-          // imagenenes
-          if ($image) {
+        // imagenenes
+        if ($image) {
             $image_completo = time() . $image->getClientOriginalName();
             Storage::disk('users')->put($image_completo, File::get($image));
             $restaurante->image = $image_completo; //esto es lo q guardaremos en la base de datos
@@ -195,13 +178,10 @@ class RestauranteController extends Controller
             Storage::disk('users')->put($menu_completo, File::get($menu));
             $restaurante->menu = $menu_completo; //esto es lo q guardaremos en la base de datos
         }
-		
-		// Actualizar registro
-		$restaurante->update();
-		
-		return redirect()->route('restaurante.detalle', ['id' => $rest_id])
-						 ->with(['message' => 'Imagen actualizada con exito']);
+        // Actualizar registro
+        $restaurante->update();
+
+        return redirect()->route('restaurante.detalle', ['id' => $rest_id])
+            ->with(['message' => 'Imagen actualizada con exito']);
     }
-
 }
-

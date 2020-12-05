@@ -14,8 +14,9 @@
     </div>
     <div class="card-body">
         <div class="imagen-contenido">
-           <a href="{{ route('image.detalle', ['id' => $image->id]) }}"> <img src="{{ route('image.file', ['filename' => $image->image_path]) }}" />
-        </a>
+            <a href="{{ route('image.detalle', ['id' => $image->id]) }}"> <img
+                    src="{{ route('image.file', ['filename' => $image->image_path]) }}" />
+            </a>
         </div>
         <div class="restaurante">
             <span class"rest">{{ $image->restaurante->nombre }}</span>

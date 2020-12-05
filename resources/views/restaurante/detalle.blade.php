@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container pantalla col-md-6">
-   @if (session('message'))
+        @if (session('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
 
@@ -27,22 +27,29 @@
 
             </div>
             <div class="row justify-content-center h-100">
-            <div class="col-sm-8 ">
-            <div class="descripcion infor">
-              <h6>EMAIL: <spam class="letritas">{{ $restaurante->email }} </spam></h6>
-                <h6>DIRECCIÓN:<spam class="letritas">{{ $restaurante->direccion }}</spam> </h6>
-                <h6>LOCALIDADE:<spam class="letritas">{{ $restaurante->localidad }} </spam></h6>
-                <h6>PROVINCIA:<spam class="letritas">{{ $restaurante->provincia }}</spam> </h6>
-                <h6>DESCRIPCION:<spam class="letritas">{{ $restaurante->descripcion }}</spam> </h6>
-                <h6>TELEFONO:<spam class="letritas">{{ $restaurante->telefono }}</spam> </h6>
+                <div class="col-sm-8 ">
+                    <div class="descripcion infor">
+                        <h6>EMAIL: <spam class="letritas">{{ $restaurante->email }} </spam>
+                        </h6>
+                        <h6>DIRECCIÓN:<spam class="letritas">{{ $restaurante->direccion }}</spam>
+                        </h6>
+                        <h6>LOCALIDADE:<spam class="letritas">{{ $restaurante->localidad }} </spam>
+                        </h6>
+                        <h6>PROVINCIA:<spam class="letritas">{{ $restaurante->provincia }}</spam>
+                        </h6>
+                        <h6>DESCRIPCION:<spam class="letritas">{{ $restaurante->descripcion }}</spam>
+                        </h6>
+                        <h6>TELEFONO:<spam class="letritas">{{ $restaurante->telefono }}</spam>
+                        </h6>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-success btn-block  " data-toggle="modal"
+                        data-target="#myModal">
+                        Carta
+                    </button>
+
+                </div>
             </div>
-             
-            <button type="button" class="btn btn-outline-success btn-block  " data-toggle="modal" data-target="#myModal">
-                Carta
-            </button>
-         
-           </div> 
-</div>
             <!-- The Modal -->
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog">

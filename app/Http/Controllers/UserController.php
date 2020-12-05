@@ -71,35 +71,31 @@ class UserController extends Controller
         //vamos a cargar la vista
         return view('user.foto');
     }
- public function create(Request $request)
- {
-    
-    { //usuario identificado
+    public function create(Request $request)
+    { { //usuario identificado
 
-        $user = \Auth::user();
-        $id = $user->id;
-        //validamos el formulario 
-    
-       
-        $image = $request->file('image');
-        if ($image) {
-            $image_completo = time() . $image->getClientOriginalName(); //asi tiene un nombre unico por q le ponemos la hora
-            //usuamos storage tambien tenemos q crear la depedencia file. Disck permite seleccionar en donde y con put guardamos la imagen
-            //asi la guardamos en storage/app/users
-            Storage::disk('users')->put($image_completo, File::get($image));
-            //le doy nombre a la imagen el objeto
-            $user->image = $image_completo;
+            $user = \Auth::user();
+            $id = $user->id;
+            //validamos el formulario 
+
+
+            $image = $request->file('image');
+            if ($image) {
+                $image_completo = time() . $image->getClientOriginalName(); //asi tiene un nombre unico por q le ponemos la hora
+                //usuamos storage tambien tenemos q crear la depedencia file. Disck permite seleccionar en donde y con put guardamos la imagen
+                //asi la guardamos en storage/app/users
+                Storage::disk('users')->put($image_completo, File::get($image));
+                //le doy nombre a la imagen el objeto
+                $user->image = $image_completo;
+            }
+
+            // hacer el update a la base de datos
+            $user->update();
+
+            return redirect()->route('home')
+                ->with(['message' => "Imaxe de avatar cambiada"]);
         }
-
-        // hacer el update a la base de datos
-        $user->update();
-
-        return redirect()->route('home')
-            ->with(['message' => "Imaxe de avatar cambiada"]);
     }
- 
-
- }
     //
     public function getImage($filename)
     {
@@ -118,14 +114,13 @@ class UserController extends Controller
     { //comprobamos si nos pasan un parametros de busqueda que se lo pasamos x la url en javascript
         if (!empty($buscar)) {
             // ponemos que nos detecte por algun campo del nick o el nombre
-            $users = User:: where ('nick','LIKE','%'.$buscar.'%')
-                            ->orwhere('name','LIKE','%'.$buscar.'%')
-                            ->orderBy('id', 'desc')
-                            ->paginate(10);
+            $users = User::where('nick', 'LIKE', '%' . $buscar . '%')
+                ->orwhere('name', 'LIKE', '%' . $buscar . '%')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
         } else {
             // mostramos los usuarios que tenemos en la aplicacion
             $users = User::orderBy('id', 'desc')->paginate(10);
-          
         }
         return view('user.usuarios', ['users' => $users]);
     }

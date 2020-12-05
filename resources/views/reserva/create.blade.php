@@ -47,7 +47,8 @@
                                 <div class="form-group row">
                                     <label for="hora" class="col-md-3 col-form-label text-md-right ">Hora</label>
                                     <div class="col-md-7">
-                                        <input type="time" id="hora" name="hora" class="form-control" min="13:00" max="23:00" required> </textarea>
+                                        <input type="time" id="hora" name="hora" class="form-control" min="13:00"
+                                            max="23:00" required> </textarea>
                                         @if ($errors->has('hora'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('hora') }}</strong>
@@ -65,7 +66,7 @@
                                             <option value=""'selected'> Escolle un bar</option>
                                             @foreach ($rest->get() as $index => $rest)
 
-                                             
+
                                                 <option value="{{ $index + 1 }}" {{ old('rest_id') == $index ?: '' }}>
                                                     {{ $rest->nombre }}
                                                 </option>
@@ -79,12 +80,12 @@
                                         @endif
                                     </div>
                                 </div>
-                                 <div class="form-group row">
+                                <div class="form-group row">
                                     <label for="comentarios"
                                         class="col-md-3 col-form-label text-md-right ">Comentarios</label>
                                     <div class="col-md-7">
-                                        <textarea id="comentarios" name="comentarios"  placeholder="Pon aqui as tuas suxerencias" class="form-control"
-                                           ></textarea>
+                                        <textarea id="comentarios" name="comentarios"
+                                            placeholder="Pon aqui as tuas suxerencias" class="form-control"></textarea>
                                         @if ($errors->has('comentarios'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('comentarios') }}</strong>
@@ -94,11 +95,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="numero"
-                                        class="col-md-3 col-form-label text-md-right ">Nº de persoas</label>
+                                    <label for="numero" class="col-md-3 col-form-label text-md-right ">Nº de persoas</label>
                                     <div class="col-md-4">
-                                        <input type="text" id="numero" name="numero"   class="form-control"/>
-                                          
+                                        <input type="text" id="numero" name="numero" class="form-control" />
+
                                         @if ($errors->has('numero'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('numero') }}</strong>
@@ -116,7 +116,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group row justify-content-center">
-                                    <p class="anotaciones"> *pon nas as observacions as tuas preperencias e mandaremosche un email ca
+                                    <p class="anotaciones"> *pon nas as observacions as tuas preperencias e mandaremosche un
+                                        email ca
                                         confirmación</p>
                                 </div>
                         </div>

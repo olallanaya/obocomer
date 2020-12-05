@@ -53,7 +53,7 @@ window.addEventListener("load", function(){
 	}
 	dislike();
 	
-	// BUSCADOR comederos
+// BUSCADOR de usuarios
 	$('#buscador').submit(function(e){
 	
 		$(this).attr('action',url+'/people/'+$('#buscador #buscar').val());
@@ -64,9 +64,5 @@ $('#search').submit(function(e){
 	
 	$(this).attr('action',url+'/restaurante/'+$('#search #search2').val());
 
-});/*
-$('#myModal').on('hidden.bs.modal', function (e) {
-	$(this).removeData('bs.modal');
-	 $(this).find('.modal-body').empty();
- });*/
+});/
 });

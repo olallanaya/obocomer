@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Reserva;
 use App\Restaurante;
+
 class ReservaController extends Controller
 {
     //
@@ -19,57 +20,49 @@ class ReservaController extends Controller
         return view('reserva.create');
     }
     public function save(Request $request)
-    { 
-    
-        //recogemos  datoss
-     
+    {
+
+        //recogemos  datoss del formulario
+
         $comentario = $request->input('comentarios');
-        $restaurante=$request->input('restaurante');
-       $fecha=$request->input('fecha');
-       $horario=$request->input('horario');
-       $hora=$request->input('hora');
-       $numero=$request->input('numero');
-        /*var_dump($imagen_ruta);
-        var_dump($descripcion);
-        die();*/
+        $restaurante = $request->input('restaurante');
+        $fecha = $request->input('fecha');
+        $horario = $request->input('horario');
+        $hora = $request->input('hora');
+        $numero = $request->input('numero');
+
         //asignamos valores al objeto
         $user = \Auth::user(); //necesitamos acceder a usuario para relacionarlo con  el id con la imagen
-        $reserva= new Reserva();
+        $reserva = new Reserva();
         $reserva->user_id = $user->id;
-        $reserva->rest_id=$restaurante;
-        $reserva->fecha=$fecha;
-        $reserva->horario=$horario;
-        $reserva->hora=$hora;
+        $reserva->rest_id = $restaurante;
+        $reserva->fecha = $fecha;
+        $reserva->horario = $horario;
+        $reserva->hora = $hora;
         $reserva->comentarios = $comentario;
-        $reserva->numero=$numero;
+        $reserva->numero = $numero;
 
-
-        //var_dump($user->id);
-        //subimos el fichero
-      
-
+        //guardamos el fichero
         $reserva->save(); //asi ya lo guardamos directamente a la vase de datos
         //ahora que nos devuelva a la home y que nos muestre q ha sido subida correctamente
         return redirect()->route('home')->with(['message' => 'Reserva feita mandaremosche un email de confirmacion da mesma']);
     }
-   
+
     public function detalle($rest_id)
-    { 
+    {
         $reser = Reserva::where('rest_id', $rest_id)
-        ->orderBy('id','desc')
-        ->paginate(15);
+            ->orderBy('id', 'desc')
+            ->paginate(15);
         if ($reser  && count($reser) >= 1) {
-           
+
             return view('reserva.mostrar', [
                 'reservas' => $reser
             ]);
-        }
-        else {
+        } else {
             $message = array('message' => 'Non hai reservas');
-        
-        //vamos a la pagina principal y con una sesion flash para ver el mensaje
-        return redirect()->route('restaurante.listado')->with($message);
-    }
-       
+
+            //vamos a la pagina principal y con una sesion flash para ver el mensaje
+            return redirect()->route('restaurante.listado')->with($message);
+        }
     }
 }

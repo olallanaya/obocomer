@@ -20,7 +20,7 @@
                                 <th>NOMBRE</th>
                                 <th>FECHA</th>
                                 <th>HORA</th>
-                                 <th>HORARIO</th>
+                                <th>HORARIO</th>
                                 <th>COMENSALES</th>
                                 <th>COMENTARIOS</th>
                                 <th>FECHA DE REALIZACION </th>
@@ -40,22 +40,16 @@
                                     <td> {{ $res->horario }} </td>
                                     <td> {{ $res->numero }} </td>
                                     <td> {{ $res->comentarios }} </td>
-                                    <td> {{ $res->created_at}}
+                                    <td> {{ $res->created_at }}
 
                                 </tr>
 
-
-
-                                </div>
-                            
-
-                                @endforeach
+                </div>
+                @endforeach
 
             </div>
 
-
         </div>
-
 
 
 

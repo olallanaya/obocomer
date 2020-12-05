@@ -86,19 +86,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('restaurante.restaurante') }}">Os nosos bares</a>
         </li>
-       
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('image.create') }}">Subida de imaxenes</a>
         </li>
-           <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('reserva.create') }}">Fai a tua reserva</a>
-      
+
         </li>
-            <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('user.foto') }}">AVATAR </a>
         </li>
 
-            @include('includes.avatar')
+        @include('includes.avatar')
 
         </li>
         <li class="nav-item dropdown">
@@ -123,18 +123,18 @@
 
             </div>
         </li>
-          </li>
-                <li class="nav-item dropdown">
+        </li>
+        <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" v-pre>
                 Administrador <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('restaurante.create') }}">
-                   Crear bares
+                    Crear bares
                 </a>
                 <a class="dropdown-item" href="{{ route('restaurante.listado') }}">
-                  Modificar datos bares
+                    Modificar datos bares
                 </a>
 
             </div>
