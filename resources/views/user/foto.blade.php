@@ -3,10 +3,10 @@
 @section('content')
 <div class="row fondo">
     <div class="container >
-        <div class="row justify-content-center" style="margin-top:30px">
+        <div class="row justify-content-center">
            
             
-            <div class="card">
+            <div class="card cardmargen">
                 <div class="card-header cabeza">SUBE A TUA FOTO DE AVATAR</div>
 
                 <div class="card-body">

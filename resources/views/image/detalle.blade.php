@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @if (session('message'))
                     <div class="alert alert-success">
                         {{ session('message') }}
@@ -36,9 +36,6 @@
                         </div>
 
                         <div class="gustas">
-                            {{--mostramos el numero de likees--}}
-
-
                             {{--comprobamos que el usuario dio al like creamos una variable x
                             defecto el like a false--}}
                             {{-- Solo queremos que aparezca la botonera si son nuestra--}}
@@ -77,11 +74,10 @@
                                             </div>
                                         </div>
                                     </div>
-                        </div>
-                        @endif
-                        <div class="clearfix"> </div>
+                        @endif      
+                        
                         <div class="comentarios">
-                            <h4> Comentarios ( {{ count($image->comentarios) }} )</h4>
+                            <h4> Comentarios </h4>
                            
                             <form method="POST" action="{{ route('comentario.save') }}">
                                 @csrf

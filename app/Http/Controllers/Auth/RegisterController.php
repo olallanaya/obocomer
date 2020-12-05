@@ -76,7 +76,7 @@ class RegisterController extends Controller
             'localidad'=>$data['localidad'],
             'provincia'=>$data['provincia'],
             'direccion'=>$data['direccion'],
-            'image'=>$data['image'],
+        
 
         ]);
     }

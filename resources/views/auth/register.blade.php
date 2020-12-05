@@ -4,20 +4,20 @@
 <div class="row fondo">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">{{ __('REGISTRO') }}</div>
+            <div class="col-md-8">
+                <div class="card cardmargen">
+                    <div class="card-header cabeza">{{ __('REXISTRO') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
+                            <div class="form-group row justify-content-center">
+                              
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        name="name" value="{{ old('name') }}"  placeholder="nome" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -26,12 +26,12 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="nick" class="col-md-4 col-form-label text-md-right">{{ __('Nick') }}</label>
+                            <div class="form-group row justify-content-center">
+                            
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="nick" type="text" class="form-control @error('nick') is-invalid @enderror"
-                                        name="nick" value="{{ old('nick') }}" required autocomplete="nick" autofocus>
+                                        name="nick" value="{{ old('nick') }}" placeholder="nick" required autocomplete="nick" autofocus>
 
                                     @error('nick')
                                         <span class="invalid-feedback" role="alert">
@@ -40,13 +40,12 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <div class="form-group row justify-content-center">
+                              
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        name="email" value="{{ old('email') }}" placeholder="email" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -56,13 +55,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="form-group row justify-content-center">
+                            
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control @error('password') is-invalid @enderror" placeholder="contraseña" name="password"
                                         required autocomplete="new-password">
 
                                     @error('password')
@@ -73,41 +71,34 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                             
+                                <div class="col-md-8">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" placeholder="confirma contraseña" required autocomplete="new-password">
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="direccion"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+                            <div class="form-group row justify-content-center">
+                           
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="direccion" type="text" class="form-control" name="direccion"
                                         value="{{ old('direccion') }}" placeholder="rua-lugar-nº-piso">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="localidad"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Localidade') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="localidad" type="text" class="form-control" value="{{ old('localidad') }}"
+                            <div class="form-group row justify-content-center">
+                               
+                                <div class="col-md-8">
+                                    <input id="localidad" type="text" class="form-control" placeholder="localidade" value="{{ old('localidad') }}"
                                         name="localidad">
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="provincia"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Provincia') }}</label>
-
-                                <div class="col-md-6">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-md-8">
                                     <select id="provincia" class="form-control" name="provincia">
+                                        <option value=""> Selecciona provincia </option> 
                                         <option value='alava'>Álava</option>
                                         <option value='albacete'>Albacete</option>
                                         <option value='alicante'>Alicante/Alacant</option>
@@ -162,15 +153,15 @@
                                         <option value='zaragoza'>Zaragoza</option>
                                     </select>
                                 </div>
-
+                           </div> 
                                 <hr>
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-outline-success btn-block">
-                                            {{ __('Rexistro') }}
-                                        </button>
-                                    </div>
+                                 <div class="form-group row justify-content-center">
+
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-outline-success btn-block" value="REXISTRO" />
+
                                 </div>
+                               
                         </form>
                     </div>
                 </div>

@@ -7,7 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
 
-                    <div class="card" style="margin-top:40px">
+                    <div class="card cardmargen">
                         <div class="card-header cabeza"> Reserva mesa
                         </div>
 

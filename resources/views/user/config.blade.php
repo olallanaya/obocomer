@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="row fondo">
-    <div class="container >
-        <div class="row justify-content-center" style="margin-top:30px">
-           
+    <div class="container">
+           <div class="row justify-content-center">
+           <div class="col-md-8">
             
-            <div class="card">
+            <div class="card cardmargen">
                 <div class="card-header cabeza">{{ __('Configuracion ') }}</div>
 
                 <div class="card-body">
@@ -14,11 +14,9 @@
                     <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" aria-label="Configuracion"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <div class="form-group row justify-content-center">
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                     name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
@@ -29,10 +27,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="nick" class="col-md-4 col-form-label text-md-right">{{ __('Nick') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+                         
+                            <div class="col-md-8">
                                 <input id="nick" type="text" class="form-control @error('nick') is-invalid @enderror"
                                     name="nick" value="{{ Auth::user()->nick }}" required autocomplete="nick" autofocus>
 
@@ -43,11 +40,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+                           
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ Auth::user()->email }}" required autocomplete="email">
 
@@ -60,30 +55,25 @@
                         </div>
 
 
-                        <div class="form-group row">
-                            <label for="direccion"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+                          
+                            <div class="col-md-8">
                                 <input id="direccion" type="text" class="form-control" name="direccion"
                                     value="{{ Auth::user()->direccion }}">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="localidad"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Localidad') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="form-group row justify-content-center">
+                          
+                            <div class="col-md-8">
                                 <input id="localidad" type="text" class="form-control" name="localidad"
                                     value="{{ Auth::user()->localidad }}">
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="provincia" class="col-md-4 col-form-label text-md-right">{{ __('Provincia') }}
-                            </label>
+                        <div class="form-group row justify-content-center">
+                         
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="provincia" class="form-control" name="provincia">
                                     <option selected value={{ Auth::user()->provincia }}> {{ Auth::user()->provincia }}
                                     </option>
@@ -142,11 +132,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row justify-content-center">
 
-                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+                        
 
-                            <div class="col-md-7">
+                            <div class="col-md-8">
                                 @include('includes.avatar')
                                 <input id="image" type="file" class="form-control @error('image') is-invalid @enderror"
                                     name="image">
@@ -173,6 +163,7 @@
           
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

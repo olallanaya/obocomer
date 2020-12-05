@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-                <div class="card">
+                <div class="card cardmargen">
                     <div class="card-header cabeza">{{ __('Un novo bar ') }}</div>
 
                     <div class="card-body">

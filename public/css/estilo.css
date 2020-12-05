@@ -101,7 +101,7 @@ form .avatar {
 }
 
 .detalle .comentarios {
-    padding: 20px;
+    padding-top: 150px;
 }
 
 .coment-bt {
@@ -286,7 +286,10 @@ form .avatar {
         transform: scale(1.5); 
         filter:drop-shadow(8px 8px 10px gray) opacity(65%);
     }
-
+    .cardmargen
+    {
+        margin-top:40px;
+    }
 /***********RESERVA***********/
 /* o asterisco do formuario de reserva*/
 .anotaciones

@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <!--vamos a crear solo una vista para la subida de la imagen-->
-                <div class="card" style="margin-top:40px">
+                <div class="card cardmargen">
                     <div class="card-header cabeza"> Engade unha nova imaxe
                     </div>
 
