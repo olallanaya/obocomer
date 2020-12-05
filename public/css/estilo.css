@@ -27,7 +27,10 @@ form .avatar {
 .navbar .avatar_contenedor img,
 .publicacion .avatar_contenedor img {
     height: 100%
+   
 }
+
+
 
 .publicacion {
     margin-bottom: 25px;
@@ -146,7 +149,7 @@ form .avatar {
     padding-top: 30px;
 }
 
-
+/*------------------ESTILOS PORTADA------------------------------------------*/
 .abs-center {
     display: flex;
     align-items: center;
@@ -242,6 +245,7 @@ form .avatar {
     color:green;
     font-weight: bolder;
 }
+
 /* restaurante*/
 .rest
 {
@@ -263,13 +267,27 @@ form .avatar {
 
 }
 
-.rest .infor{
+ .infor{
     
     color:grey;
     float: left;
     padding-left: 30px;
     padding-top: 30px;
 }
+.letritas{
+    font-weight: bolder;
+    color:rgb(58, 56, 56)
+}
+    .zoom {
+        transition: transform .2s; 
+    }
+     
+    .zoom:hover {
+        transform: scale(1.5); 
+        filter:drop-shadow(8px 8px 10px gray) opacity(65%);
+    }
+
+/***********RESERVA***********/
 /* o asterisco do formuario de reserva*/
 .anotaciones
 {

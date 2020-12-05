@@ -35,7 +35,9 @@
                 @foreach ($restaurante as $restaurante)
                     <div class="perfil">
                         @if ($restaurante->image)
-                            <div class="avatar_contenedor">
+                        
+                            <div class="avatar_contenedor zoom">
+                            
                                 <img src="{{ route('restaurante.imagen', ['filename' => $restaurante->image]) }}"
                                     class="avatar" />
                             </div>

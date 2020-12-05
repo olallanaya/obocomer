@@ -17,10 +17,10 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="imagen-contenido">
+                <div class="imagen-contenido ">
                     @if ($restaurante->image)
 
-                        <img src="{{ route('restaurante.imagen', ['filename' => $restaurante->image]) }}" />
+                        <img class="zoom" src="{{ route('restaurante.imagen', ['filename' => $restaurante->image]) }}" />
 
                     @endif
                 </div>
@@ -28,19 +28,19 @@
             </div>
             <div class="row justify-content-center h-100">
             <div class="col-sm-8 ">
-            <div class="descripcion  text-center">
-                <h6>{{ $restaurante->email }} </h6>
-                <h6>{{ $restaurante->direccion }} </h6>
-                <h6>{{ $restaurante->localidad }} </h6>
-                <h6>{{ $restaurante->provincia }} </h6>
-                <h6>{{ $restaurante->descripcion }} </h6>
-                <h6>{{ $restaurante->telefono }} </h6>
+            <div class="descripcion infor">
+              <h6>EMAIL: <spam class="letritas">{{ $restaurante->email }} </spam></h6>
+                <h6>DIRECCIÓN:<spam class="letritas">{{ $restaurante->direccion }}</spam> </h6>
+                <h6>LOCALIDADE:<spam class="letritas">{{ $restaurante->localidad }} </spam></h6>
+                <h6>PROVINCIA:<spam class="letritas">{{ $restaurante->provincia }}</spam> </h6>
+                <h6>DESCRIPCION:<spam class="letritas">{{ $restaurante->descripcion }}</spam> </h6>
+                <h6>TELEFONO:<spam class="letritas">{{ $restaurante->telefono }}</spam> </h6>
             </div>
              
             <button type="button" class="btn btn-outline-success btn-block  " data-toggle="modal" data-target="#myModal">
                 Carta
             </button>
-            <a href="" class="btn btn-outline-success  btn-block ">Reserva</a>
+         
            </div> 
 </div>
             <!-- The Modal -->
