@@ -161,7 +161,11 @@
     </div>
     </div>
     </div>
-
+   <footer id="sticky-footer" class="py-4 bg-light ">
+    <div class="container text-center">
+    <small>Copyright &copy; obocomer</small>
+    </div>
+  </footer>  
 </body>
 
 </html>
